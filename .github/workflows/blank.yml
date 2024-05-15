@@ -1,36 +1,48 @@
-# This is a basic workflow to help you get started with Actions
+# Template file for 'yandex-browser'
+pkgname=yandex-browser
+version=24.4.1.941
+revision=1
+_channel=stable
+archs="x86_64"
+hostmakedepends="curl tar xz python3 python3-html2text python3-setuptools"
+depends="gtk+3"
+short_desc="Attempt at creating a safer, faster, and more stable browser"
+maintainer="Vladimir Syr <vsyr89@yandex.ru>"
+license="custom:yandex"
+homepage="https://browser.yandex.ru/"
+nostrip=yes
+restricted=yes
+repository=nonfree
 
-name: CI
+_baseUrl="https://repo.yandex.ru/yandex-browser/deb/pool/main/y/yandex-browser-stable"
+_filename="yandex-browser-${_channel}_${version}-1_amd64.deb"
+_yandexUrl="${_baseUrl}/${_filename}"
+_licenseUrl="https://yandex.ru/legal/browser_agreement"
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+do_extract() {
+	mkdir -p ${DESTDIR}
+	ar x ${XBPS_SRCDISTDIR}/yandex-browser-${version}/${_filename}
+}
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+do_install() {
+	tar xf data.tar.xz -C ${DESTDIR}
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+	# Install the icons
+	for size in 16 24 32 48 64 128 256 512; do
+		# Create the yandex browser xdg directory
+		mkdir -p ${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+		# Copy the yandex browser icon
+		mv ${DESTDIR}/opt/yandex/browser/product_logo_${size}.png \
+		   ${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps/yandex-browser.png
+	done
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+	# Remove the Debian/Ubuntu crontab
+	rm -rf ${DESTDIR}/etc
+	rm -rf ${DESTDIR}/opt/yandex/browser/cron
+}
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+post_install() {
+	curl ${_licenseUrl} | html2text >> yandex-browser-eula.md
+	vlicense yandex-browser-eula.md
+}
