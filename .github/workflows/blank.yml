@@ -40,10 +40,12 @@ jobs:
         https://github.com/void-linux/void-packages.git
         cd void-packages
         ./xbps-src binary-bootstrap
+        
         echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
-        git clone https://github.com/sofijacom/yandex-browser.git
+        
         cd srcpkgs
-        git clone https://github.com/sofijacom/yandex-browser.git
+        https://github.com/sofijacom/yandex-browser.git
+        
         cd ../
         ./xbps-src pkg yandex-browser
         
