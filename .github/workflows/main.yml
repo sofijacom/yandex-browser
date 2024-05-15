@@ -37,7 +37,6 @@ jobs:
 # Runs a single command using the runners shell
       - name: Build xbps
         run: |                
-        ./xbps-src pkg yandex-browser
         
       - name: release
         uses: "sofijacom/action-automatic-releases@6273874b61ebc8c71f1a61b2d98e234cf389b303"
