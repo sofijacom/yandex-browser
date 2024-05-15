@@ -17,7 +17,7 @@ echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
 Cloning the repository:
 ```
 cd srcpkgs
-git clone https://github.com/sofijacom/yandex-browser-void.git
+git clone https://github.com/sofijacom/yandex-browser.git
 cd ../
 ```
 
