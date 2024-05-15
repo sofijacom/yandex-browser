@@ -37,10 +37,8 @@ jobs:
 # Runs a single command using the runners shell
       - name: Build xbps
         run: |        
-        cd srcpkgs
         https://github.com/sofijacom/yandex-browser.git
         
-        cd ../
         ./xbps-src pkg yandex-browser
         
       - name: release
