@@ -42,6 +42,22 @@ do_install() {
 	rm -rf ${DESTDIR}/opt/yandex/browser/cron
 }
 
+codecInstallationRequired() {
+    current_lunux_distro=$( getOsName ) ;
+
+    if [ "$current_lunux_distro" = "ubuntu" ]; then
+        echo "no"
+    else
+        echo "yes"
+    fi
+}
+
+codecs_required=$( codecInstallationRequired )
+if [ "$codecs_required" = "yes" ]; then
+    # Do not break installation anyway
+    /opt/yandex/browser/update_codecs /opt/yandex/browser || true
+fi
+
 post_install() {
 	curl ${_licenseUrl} | html2text >> yandex-browser-eula.md
 	vlicense yandex-browser-eula.md
