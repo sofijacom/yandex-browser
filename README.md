@@ -1,4 +1,5 @@
-# Yandex-Browser-for-Void-Linux 
+# Yandex-Browser-for-Void-Linux ![void](https://github.com/sofijacom/yandex-browser/assets/107557749/0cb14595-dcea-4f79-84a4-0185b1df379d)
+
 
 ### Installation
 
