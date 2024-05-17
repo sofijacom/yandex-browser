@@ -1,4 +1,4 @@
-# 🎉 Yandex-Browser-for-Void-Linux 🎉
+# Yandex-Browser-for-Void-Linux 
 
 ### Installation
 
