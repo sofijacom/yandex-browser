@@ -53,9 +53,6 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/void-linux/void-packages.git
           ls -la
-
-      - name: To collect a package marked restricted
-          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           
       - name: Clone yandex-browser and prepare
         run: |
