@@ -7,7 +7,7 @@ archs="x86_64"
 hostmakedepends="curl tar xz python3 python3-html2text python3-setuptools"
 depends="gtk+3"
 short_desc="Attempt at creating a safer, faster, and more stable browser"
-maintainer="Sofiya <sofija.p2018@yandex.ru>"
+maintainer="Vladimir Syr <vsyr89@yandex.ru>"
 license="custom:yandex"
 homepage="https://browser.yandex.ru/"
 nostrip=yes
@@ -18,6 +18,9 @@ _baseUrl="https://repo.yandex.ru/yandex-browser/deb/pool/main/y/yandex-browser-s
 _filename="yandex-browser-${_channel}_${version}-1_amd64.deb"
 _yandexUrl="${_baseUrl}/${_filename}"
 _licenseUrl="https://yandex.ru/legal/browser_agreement"
+
+# distfiles="$_yandexUrl"
+# checksum=fc43ae40b66d9c7b355b34991a1177afcc81e4dd597dfb118ad9ab8b3cad4203
 
 do_extract() {
 	mkdir -p ${DESTDIR}
