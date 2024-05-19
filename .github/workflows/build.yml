@@ -51,6 +51,7 @@ jobs:
 
       - name: Clone Void-Packages and prepare
         run: |
+          git clone --depth 1 https://github.com/void-linux/void-packages.git
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
           ls -la
 
