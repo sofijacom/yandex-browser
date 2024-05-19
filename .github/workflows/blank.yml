@@ -64,7 +64,7 @@ jobs:
 
       - name: To collect a package marked restricted
         run: |
-          echo "XBPS_ALLOW_RESTRICTED=yes" >> etc/conf
+          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
 
       - name: Create hostrepo and prepare masterdir
         run: |
