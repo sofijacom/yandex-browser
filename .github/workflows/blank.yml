@@ -51,8 +51,16 @@ jobs:
 
       - name: Clone Void-Packages and prepare
         run: |
-          git clone --depth 1 https://github.com/Makrennel/hyprland-void.git
+          git clone --depth 1 https://github.com/void-linux/void-packages.git
           ls -la
+          
+      - name: Clone yandex-browser and prepare
+        run: |
+          git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
+          cd yandex-browser
+          cat common/shlibs >> ../void-packages/common/shlibs
+          cp -r srcpkgs/* ../void-packages/srcpkgs
+          cd ..
 
       - name: Create hostrepo and prepare masterdir
         run: |
@@ -62,7 +70,7 @@ jobs:
           common/travis/prepare.sh &&
           common/travis/fetch-xtools.sh
 
-      - name: Build hyprland
+      - name: Build yandex-browser
         run: |
           (
           /hostrepo/xbps-src -j$(nproc) -s -H ~/hostdir pkg yandex-browser
@@ -76,7 +84,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: hyprland-void
+          name: yandex-browser
           path: ~/hostdir/binpkgs
 
   publish:
@@ -87,7 +95,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: yandex-browser-void
+          name: yandex-browser
           path: ./
 
       - name: Get current date
