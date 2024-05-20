@@ -64,8 +64,7 @@ jobs:
 
       - name: To collect a package marked restricted
         run: |
-          touch void-packages/etc/conf
-          echo XBPS_ALLOW_RESTRICTED=yes >> void-packages/etc/conf
+          echo "XBPS_ALLOW_RESTRICTED=yes" >> void-packages/etc/conf
 
       - name: Create hostrepo and prepare masterdir
         run: |
