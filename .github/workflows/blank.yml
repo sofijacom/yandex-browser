@@ -61,9 +61,6 @@ jobs:
           cat common/shlibs >> ../void-packages/common/shlibs
           cp -r srcpkgs/* ../void-packages/srcpkgs
           cd ..
-
-      - name: To collect a package marked
-        run: echo "XBPS_ALLOW_RESTRICTED=yes" >> etc/conf        
           
       - name: Create hostrepo and prepare masterdir
         run: |
