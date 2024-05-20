@@ -58,6 +58,14 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
           cd ../
+
+      - name: Create hostrepo and prepare masterdir
+        run: |
+          cd void-packages
+          ln -s "$(pwd)" /hostrepo 
+          common/travis/set_mirror.sh &&
+          common/travis/prepare.sh &&
+          common/travis/fetch-xtools.sh
           
       - name: Build yandex-browser
         run: |
