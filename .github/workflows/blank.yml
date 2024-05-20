@@ -63,9 +63,7 @@ jobs:
           cd ..
 
       - name: To collect a package marked
-        run: |
-          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
-          cat etc/conf >> ../void-packages/etc/conf         
+        run: echo "XBPS_ALLOW_RESTRICTED=yes" >> etc/conf        
           
       - name: Create hostrepo and prepare masterdir
         run: |
