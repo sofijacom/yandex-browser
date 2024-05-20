@@ -56,7 +56,6 @@ jobs:
  
       - name: Clone yandex-browser and prepare
         run: |
-          cd srcpkgs
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
           cd yandex-browser
           cp -r srcpkgs/* ../void-packages/srcpkgs
