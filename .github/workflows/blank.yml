@@ -57,9 +57,9 @@ jobs:
       - name: Clone yandex-browser and prepare
         run: |
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
-     #     cd yandex-browser
-     #     cat common/shlibs >> ../void-packages/common/shlibs
-     #     cp -r srcpkgs/* ../void-packages/srcpkgs
+          cd yandex-browser
+          cat common/shlibs >> ../void-packages/common/shlibs
+          cp -r srcpkgs/* ../void-packages/srcpkgs
           cd ..
           
       - name: Create hostrepo and prepare masterdir
