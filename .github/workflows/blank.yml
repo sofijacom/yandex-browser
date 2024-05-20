@@ -55,7 +55,7 @@ jobs:
           ls -la
 
       - name: To collect a package marked
-        run: echo "XBPS_ALLOW_RESTRICTED=yes" >> etc/conf
+        run: touch "XBPS_ALLOW_RESTRICTED=yes" >> etc/conf
           
       - name: Clone yandex-browser and prepare
         run: |
