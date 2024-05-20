@@ -53,17 +53,13 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/void-linux/void-packages.git
           ls -la
-
-      - name: To collect a package marked
-        run: |
-          touch etc/conf
-          
+ 
       - name: Clone yandex-browser and prepare
         run: |
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
-          cd yandex-browser
-          cat common/shlibs >> ../void-packages/common/shlibs
-          cp -r srcpkgs/* ../void-packages/srcpkgs
+     #     cd yandex-browser
+     #     cat common/shlibs >> ../void-packages/common/shlibs
+     #     cp -r srcpkgs/* ../void-packages/srcpkgs
           cd ..
           
       - name: Create hostrepo and prepare masterdir
