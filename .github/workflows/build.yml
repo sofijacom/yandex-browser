@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build yandex-browser
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     container:
       image: ghcr.io/void-linux/void-buildroot-${{ matrix.config.libc }}:20231230R1
@@ -92,7 +92,7 @@ jobs:
   publish:
     name: Pack and Publish
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
