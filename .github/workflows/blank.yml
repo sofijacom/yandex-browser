@@ -53,8 +53,8 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/void-linux/void-packages.git
           cd void-packages
-         ./xbps-src binary-bootstrap
-#          ls -la
+#         ./xbps-src binary-bootstrap
+          ls -la
           
       - name: Clone yandex-browser and prepare
         run: |
