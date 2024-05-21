@@ -43,23 +43,28 @@ jobs:
           xbps-install -Syu
           xbps-install -y tar
 
-      - name: Make void pkgs directory
-        run: |
-          cd $HOME
-          mkdir void-pkgs
-          cd void-pkgs
+#      - name: Make void pkgs directory
+#        run: |
+#          cd $HOME
+#          mkdir void-pkgs
+#          cd void-pkgs
 
       - name: Clone Void-Packages and prepare
         run: |
           git clone --depth 1 https://github.com/void-linux/void-packages.git
-          ls -la
+          cd void-packages
+         ./xbps-src binary-bootstrap
+#          ls -la
           
       - name: Clone yandex-browser and prepare
         run: |
-          git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
-          cd yandex-browser
-          cp -r srcpkgs/* ../void-packages/srcpkgs
+          cd srcpkgs
+          git clone https://github.com/sofijacom/yandex-browser.git
           cd ../
+  #        git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
+  #        cd yandex-browser
+  #        cp -r srcpkgs/* ../void-packages/srcpkgs
+  #        cd ..
 
       - name: Create hostrepo and prepare masterdir
         run: |
