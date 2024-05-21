@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build yandex-browser
-    runs-on: ubuntu-20.04
+    runs-on: void
 
     container:
       image: ghcr.io/void-linux/void-buildroot-${{ matrix.config.libc }}:20231230R1
@@ -62,6 +62,7 @@ jobs:
         run: |
           cd void-packages/srcpkgs
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
+          cp -r srcpkgs/* ../void-packages/srcpkgs
           cd ../
 
       - name: Create hostrepo and prepare masterdir
@@ -92,7 +93,7 @@ jobs:
   publish:
     name: Pack and Publish
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: void
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
