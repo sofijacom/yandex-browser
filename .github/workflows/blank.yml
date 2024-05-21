@@ -52,18 +52,15 @@ jobs:
       - name: Clone Void-Packages and prepare
         run: |
           git clone --depth 1 https://github.com/void-linux/void-packages.git
-         ./xbps-src binary-bootstrap
           ls -la
           
       - name: Clone yandex-browser and prepare
         run: |
           cd srcpkgs
-          git clone https://github.com/sofijacom/yandex-browser.git
-          cd ../
-  #        git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
-  #        cd yandex-browser
-  #        cp -r srcpkgs/* ../void-packages/srcpkgs
-  #        cd ..
+          git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
+          cd yandex-browser
+          cp -r srcpkgs/* ../void-packages/srcpkgs
+          cd ..
 
       - name: Create hostrepo and prepare masterdir
         run: |
