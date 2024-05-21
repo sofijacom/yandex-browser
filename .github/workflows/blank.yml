@@ -59,7 +59,7 @@ jobs:
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
           cd yandex-browser
           cp -r srcpkgs/* ../void-packages/srcpkgs
-          cd ..
+          cd ../
 
       - name: Create hostrepo and prepare masterdir
         run: |
