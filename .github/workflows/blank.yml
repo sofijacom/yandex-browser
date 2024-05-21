@@ -42,7 +42,6 @@ jobs:
           xbps-install -Syu xbps
           xbps-install -Syu
           xbps-install -y tar
-          xbps-install -y curl
 
       - name: Make void pkgs directory
         run: |
