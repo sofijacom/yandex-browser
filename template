@@ -56,7 +56,8 @@ altlinux_fetch_ffmpeg() {
   local temp_dir=$(mktemp -d --tmpdir)
   cd $temp_dir
   # TODO(palar): use more versatile method then download with direct link
-  wget https://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-120-alt3.x86_64.rpm
+  # https://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-120-alt3.x86_64.rpm
+  wget https://mirror.yandex.ru/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-120-alt3.x86_64.rpm
 
   rpm2cpio *.rpm | cpio -i --make-directories --no-absolute-filenames *libffmpeg.so
   find . -name *.so -exec mv {} /opt/yandex/browser/ \;
