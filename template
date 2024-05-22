@@ -49,3 +49,54 @@ post_install() {
 	curl ${_licenseUrl} | html2text >> yandex-browser-eula.md
 	vlicense yandex-browser-eula.md
 }
+
+
+altlinux_fetch_ffmpeg() {
+  local current_dir=$PWD
+  local temp_dir=$(mktemp -d --tmpdir)
+  cd $temp_dir
+  # TODO(palar): use more versatile method then download with direct link
+  wget https://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux/p10/branch/x86_64/RPMS.classic/ffmpeg-plugin-browser-120-alt3.x86_64.rpm
+
+  rpm2cpio *.rpm | cpio -i --make-directories --no-absolute-filenames *libffmpeg.so
+  find . -name *.so -exec mv {} /opt/yandex/browser/ \;
+  cd $current_dir
+  rm -fr $temp_dir
+}
+
+getOsName() {
+    if [ -f "/etc/os-release" ]
+    then
+        cat "/etc/os-release" | grep "^ID=" | sed "s/ID=//1"
+    fi
+}
+
+codecInstallationRequired() {
+    current_lunux_distro=$( getOsName ) ;
+
+    if [ "$current_lunux_distro" = "ubuntu" ]; then
+        echo "no"
+    else
+        echo "yes"
+    fi
+}
+
+codecs_required=$( codecInstallationRequired )
+if [ "$codecs_required" = "yes" ]; then
+    # Do not break installation anyway
+    /opt/yandex/browser/update_codecs /opt/yandex/browser || true
+fi
+
+
+
+# This function uses sed to insert the contents of one file into another file,
+# after the first line matching a given regular expression. If there is no
+# matching line, then the file is unchanged.
+insert_after_first_match() {
+  # $1: file to update
+  # $2: regular expression
+  # $3: file to insert
+  sed -i -e "1,/$2/ {
+    /$2/ r $3
+    }" "$1"
+}
