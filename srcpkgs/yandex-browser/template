@@ -20,7 +20,7 @@ _yandexUrl="${_baseUrl}/${_filename}"
 _licenseUrl="https://yandex.ru/legal/browser_agreement"
 
 distfiles="$_yandexUrl"
-checksum=cdae51ad2be6e4213ff7d068a29a8f5e024d0d1501781f77f938b8a8a0725ae7
+checksum=e00b0ca4036d317512d8d08f288f94b74b561aead1229582992dcf8448b5086a
 
 do_extract() {
 	mkdir -p ${DESTDIR}
