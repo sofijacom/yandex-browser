@@ -62,7 +62,6 @@ jobs:
         run: |
           cd void-packages/srcpkgs
           git clone --depth 1 https://github.com/sofijacom/yandex-browser.git
-          ls -la
           cd ../
 
       - name: Create hostrepo and prepare masterdir
