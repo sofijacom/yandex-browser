@@ -5,9 +5,9 @@ revision=1
 _channel=stable
 archs="x86_64"
 hostmakedepends="curl tar xz python3 python3-html2text python3-setuptools"
-Pre-Depends: dpkg (>= 1.14.0)
-Depends: binutils, ca-certificates, gtk+3, fonts-liberation, jq, libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.2.0), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libcairo2 (>= 1.6.0), libcups2 (>= 1.6.0), libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3, libdbus-1-3 (>= 1.9.14), libdrm2 (>= 2.4.75), libexpat1 (>= 2.1~beta3), libgbm1 (>= 17.1.0~rc2), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.35), libpango-1.0-0 (>= 1.14.0), libvulkan1, libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.4-1), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxkbfile1, libxrandr2, squashfs | squashfs-tools, wget, xdg-utils (>= 1.0.2)
-Recommends: libu2f-udev, gstreamer1.0-libav (>= 1.14.0), gstreamer1.0-plugins-bad (>= 1.14.0), gstreamer1.0-plugins-base (>= 1.14.0), gstreamer1.0-plugins-good (>= 1.14.0), gstreamer1.0-tools (>= 1.14.0), libgstreamer1.0-0 (>= 1.14.0), gstreamer1.0-plugins-bad-faad (>= 1.14.0), gstreamer1.0-plugins-bad-videoparsers (>= 1.14.0)
+pre-depends="dpkg" 
+depends="binutils ca-certificates gtk+3 fonts-liberation jq libasound2 libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0 libc6 libcairo2 libcups2 libcurl3-gnutls libcurl3-nss libcurl4 libcurl3 libdbus-1-3 libdrm2 libexpat1 libgbm1 libglib2.0-0 libgtk-3-0 libgtk-4-1 libnspr4 libnss3 libpango-1.0-0 libvulkan1 libx11-6 libxcb1 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxkbcommon0 libxkbfile1 libxrandr2 squashfs squashfs-tools wget xdg-utils"
+recommends="libu2f-udev gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-tools libgstreamer1.0-0 gstreamer1.0-plugins-bad-faad gstreamer1.0-plugins-bad-videoparsers"
 # depends="gtk+3"
 short_desc="Attempt at creating a safer, faster, and more stable browser"
 maintainer="Sofiya <sofiya@yandex.ru>"
