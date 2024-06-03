@@ -29,5 +29,5 @@ Assembling Yandex Browser:
 
 Installing Yandex Browser:
 ```
-xbps-install -v --repository hostdir/binpkgs/nonfree yandex-browser
+sudo xbps-install -v --repository hostdir/binpkgs/nonfree yandex-browser
 ```
