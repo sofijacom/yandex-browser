@@ -27,7 +27,7 @@ jobs:
           - {
               arch: x86_64,
               host: x86_64,
-  #            libc: glibc,
+              libc: glibc,
               platform: linux/amd64,
               test: 1,
             }
