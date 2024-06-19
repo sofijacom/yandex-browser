@@ -40,7 +40,7 @@ jobs:
           sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           xbps-install -Syu xbps
           xbps-install -Syu
-          xbps-install -y tar
+          xbps-install -y tar dpkg pkg-config python3 python3-html2text python3-setuptools gtk+3
 
       - name: Make void pkgs directory
         run: |
