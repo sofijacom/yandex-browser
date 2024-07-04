@@ -1,6 +1,6 @@
 # Template file for 'yandex-browser'
 pkgname=yandex-browser
-version=24.4.1.951
+version=24.6.1.852
 revision=1
 _channel=stable
 archs="x86_64"
@@ -20,7 +20,7 @@ _yandexUrl="${_baseUrl}/${_filename}"
 _licenseUrl="https://yandex.ru/legal/browser_agreement"
 
 distfiles="$_yandexUrl"
-checksum=e00b0ca4036d317512d8d08f288f94b74b561aead1229582992dcf8448b5086a
+checksum=ec6d8022a57ba420966cdd922b372a33f3844ba103a8740aceb25373e19759e2
 
 do_extract() {
 	mkdir -p ${DESTDIR}
@@ -49,3 +49,4 @@ post_install() {
 	curl ${_licenseUrl} | html2text >> yandex-browser-eula.md
 	vlicense yandex-browser-eula.md
 }
+
