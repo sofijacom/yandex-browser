@@ -1,6 +1,9 @@
 # _Yandex-Browser-for-Void-Linux ![void](https://github.com/sofijacom/yandex-browser/assets/107557749/0cb14595-dcea-4f79-84a4-0185b1df379d)_
 
 
+![2024-09-24_22-23](https://github.com/user-attachments/assets/4d556c6b-a092-44f2-b2e1-1e9dce9af76d)
+
+
 ### Installation
 
 Clone `void-packages` and install the environment for building packages:
