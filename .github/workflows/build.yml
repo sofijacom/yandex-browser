@@ -40,7 +40,7 @@ jobs:
           sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           xbps-install -Syu xbps
           xbps-install -Syu
-          xbps-install -y tar curl xz cmake python3 python3-html2text python3-setuptools
+          xbps-install -y tar
 
       - name: Make void pkgs directory
         run: |
