@@ -15,7 +15,7 @@ cd void-packages
 
 To collect a package marked "restricted":
 ```
-echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
+echo "XBPS_ALLOW_RESTRICTED=yes" >> etc/conf
 ```
 
 Cloning the repository:
