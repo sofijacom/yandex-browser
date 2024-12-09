@@ -55,7 +55,7 @@ jobs:
             
       - name: To collect a package marked
         run: |
-          echo XBPS_ALLOW_RESTRICTED=yes >> void-packages/etc/conf    
+          echo "XBPS_ALLOW_RESTRICTED=yes" >> void-packages/etc/conf    
             
       - name: Clone yandex-browser and prepare
         run: |
