@@ -47,12 +47,7 @@ jobs:
           mkdir ~/void-pkgs
           cd ~/void-pkgs
           git clone --depth 1 https://github.com/void-linux/void-packages.git          
-
-      - name: Clone binary-bootstrap
-        run: |      
-          cd void-packages
-          ./xbps-src binary-bootstrap      
-            
+      
       - name: To collect a package marked
         run: |
           echo "XBPS_ALLOW_RESTRICTED=yes" >> void-packages/etc/conf    
@@ -65,7 +60,7 @@ jobs:
 
       - name: Create hostrepo and prepare masterdir
         run: |
-          cd void-packages
+          cd ~/void-pkgs/void-packages
           ln -s "$(pwd)" /hostrepo &&
           common/travis/set_mirror.sh &&
           common/travis/prepare.sh &&
