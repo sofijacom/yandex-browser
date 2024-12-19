@@ -42,12 +42,6 @@ jobs:
           xbps-install -Syu
           xbps-install -y tar
 
-      - name: Make void pkgs directory
-      -  run: |
-      -    cd $HOME
-      -    mkdir void-pkgs
-      -    cd void-pkgs
-
       - name: Clone Void-Packages and prepare
         run: |
           git clone --depth 1 https://github.com/void-linux/void-packages.git
