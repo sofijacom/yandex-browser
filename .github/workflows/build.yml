@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/void-linux/void-buildroot-${{ matrix.config.libc }}:20231230R1
+      image: ghcr.io/void-linux/void-buildroot-${{ matrix.config.libc }}:20240526R1
       options: --platform ${{ matrix.config.platform }}
       env:
         PATH: "/usr/libexec/chroot-git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin"
@@ -40,22 +40,17 @@ jobs:
           sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           xbps-install -Syu xbps
           xbps-install -Syu
-          xbps-install -y tar
+          xbps-install -y tar curl
 
       - name: Make void pkgs directory
         run: |
-          cd $HOME
-          mkdir void-pkgs
-          cd void-pkgs          
-
-      - name: Clone Void-Packages and prepare
-        run: |
-          git clone --depth 1 https://github.com/void-linux/void-packages.git
-          ls -la
+          mkdir ~/void-pkgs
+          cd ~/void-pkgs
+          git clone --depth 1 https://github.com/void-linux/void-packages.git          
 
       - name: Clone binary-bootstrap
         run: |      
-          cd void-pkgs/void-packages
+          cd void-packages
           ./xbps-src binary-bootstrap      
             
       - name: To collect a package marked
