@@ -55,7 +55,7 @@ jobs:
 
       - name: Clone binary-bootstrap
         run: |      
-          cd void-pkgs
+          cd void-pkgs/void-packages
           ./xbps-src binary-bootstrap      
             
       - name: To collect a package marked
