@@ -43,7 +43,6 @@ do_install() {
 	# Remove the Debian/Ubuntu crontab
 	rm -rf ${DESTDIR}/etc
 	rm -rf ${DESTDIR}/opt/yandex/browser/cron
-}
 
 altlinux_fetch_ffmpeg() {
   local current_dir=$PWD
@@ -103,6 +102,7 @@ insert_after_first_match() {
   sed -i -e "1,/$2/ {
     /$2/ r $3
     }" "$1"
+}
 }
 
 post_install() {
