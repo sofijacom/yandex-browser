@@ -48,8 +48,4 @@ do_install() {
 post_install() {
 	curl ${_licenseUrl} | html2text >> yandex-browser-eula.md
 	vlicense yandex-browser-eula.md
-
-    update-desktop-database -q
-    #Install external ffmpeg library for more compatability
-    /opt/yandex/browser/update_codecs /opt/yandex/browser || true
 }
