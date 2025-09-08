@@ -37,5 +37,8 @@ sudo xbps-install -v --repository hostdir/binpkgs/nonfree yandex-browser
 
 Install codec:
 ```
+sudo rm "/opt/yandex/browser/libffmpeg.so"
+```
+```
 sudo /opt/yandex/browser/update_codecs /opt/yandex/browser || true
 ```
