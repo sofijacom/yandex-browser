@@ -34,3 +34,8 @@ Installing Yandex Browser:
 ```
 sudo xbps-install -v --repository hostdir/binpkgs/nonfree yandex-browser
 ```
+
+Install codec:
+```
+sudo /opt/yandex/browser/update_codecs /opt/yandex/browser || true
+```
